@@ -1,4 +1,4 @@
-const mysql = require ("mysql2/promise");
+const mysql = require ('mysql2/promise');
 
 async function main ()
 {
@@ -8,22 +8,21 @@ async function main ()
         {
             host : "localhost",
             user : "root",
-            password : "/",
-            database : "/"
+            password : "My.12345.Sql",
+            database : "BBDD 1"
         });
         console.log("Conexión correcta");
     
-
 // RETO 1
     // PUNTO 3 
 
-let sql = 'UPDATE TABLE direccion ADD COLUMN codigo_postal';
-let [result] = await connection.query(sql);
-console.log('Columna codigo_postal añadida');
+// let sql = 'ALTER TABLE direccion ADD COLUMN codigo_postal VARCHAR(255)';
+// let [result] = await connection.query(sql);
+// console.log('Columna codigo_postal añadida');
 
-sql = 'UPDATE TABLE direccion DROP COLUMN calle';
-[result] = await connection.query(sql);
-console.log('Columna calle eliminada ');
+// sql = 'ALTER TABLE direccion DROP COLUMN calle';
+// [result] = await connection.query(sql);
+// console.log('Columna calle eliminada ');
 
 //     // PUNTO 4
 
@@ -33,15 +32,23 @@ console.log('Columna calle eliminada ');
 
 //     // PUNTO 5
 
-// let sql = 'SET mark = 0';
+// let sql = 'UPDATE marks SET mark = 0';
 // let [result] = await connection.query(sql);
 // console.log('Notas de estudiantes actualizadas');
+// console.log(result);
 
 //     // PUNTO 6
 
 // let sql = 'SELECT first_name, last_name FROM students';
 // let [result] = await connection.query(sql);
 // console.log('Estudiantes:');
+// console.log(result);
+
+//     // PUNTO 7
+
+// let sql = 'SELECT * FROM teachers';
+// let [result] = await connection.query(sql);
+// console.log('Datos de los profesores:');
 // console.log(result);
 
 // // RETO 2
@@ -53,7 +60,7 @@ console.log('Columna calle eliminada ');
 
 //     // PUNTO 2
 
-// let sql = 'UPDATE marks SET mark = 5 WHERE nota < 5';
+// let sql = 'UPDATE marks SET mark = 5 WHERE mark < 5';
 // let [result] = await connection.query(sql);
 // console.log('Aprobamos a los suspendidos');
 
@@ -66,43 +73,3 @@ console.log('Columna calle eliminada ');
 }
 
 main();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//===================================================
-    // RETOS 
-        // 1 F:
-
-        // 2 F: Eliminar tabla dirección
-
-        // let sql = "DROP TABLE direccion"
-        // let [result] = await connection.query(sql);
-        // console.log("Tabla eliminada");
-        // console.log(result);
-
-
-
-
-
-
-
-
-

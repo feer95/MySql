@@ -39,8 +39,8 @@ async function main ()
             // console.log('Se han eliminado las notas que estaban por encima de 5 y eran del año 2022-01-01.');
             // console.log(result);
 
-        //     //PUNTO 5 CORREGIDO
-            // let sql = "SELECT * FROM students WHERE (date_in BETWEEN '2022-01-01' AND '2023-12-01')";
+        //     //PUNTO 5 CORREGIDO SIN PARENTESIS
+            // let sql = "SELECT * FROM students WHERE date_in BETWEEN '2022-01-01' AND '2023-12-01'";
             // let [result] = await connection.query(sql);
             // console.log('Estudiantes del bootcamp este año:');
             // console.log(result);

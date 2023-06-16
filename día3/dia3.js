@@ -45,7 +45,15 @@ async function main ()
 
         // let [result] = await connection.query(sql);
         // console.log('Número total de alumnos por asignatura:');
-        // console.log(result);
+        // console.log(result);   
+        
+        
+        let sql = "DESCRIBE marks"
+        let [result] = await connection.query(sql);
+        console.log('marks:');
+        console.log(result);
+
+
     }
     catch(err)
     {

@@ -13,36 +13,39 @@ async function main ()
         });
         console.log("Conexión correcta");
 
-        // RETO 1
-        // let sql = 'SELECT first_name, last_name, title FROM students AS s LEFT JOIN subjects AS sub ON title = title';
+        // RETO 1 CORREGIDO
+        // let sql = 'SELECT st.first_name, st.last_name, su.title FROM Students AS st JOIN Marks AS m ON st.student_id = m.student_id JOIN Subjects AS su ON m.subject_id = su.subject_id';
         // let [result] = await connection.query(sql);
         // console.log('Alumnos y asignatura:');
         // console.log(result);
 
         // RETO 2
-        // let sql = 'SELECT first_name, last_name, title FROM teachers AS t INNER JOIN subjects AS s ON title = title';
+        // let sql = 'SELECT t.first_name, t.last_name, s.title FROM teachers AS t JOIN subject_teacher AS st ON t.teachers_id = st.teacher_id JOIN subjects AS s ON st.subject_id = s.subject_id';
         // let [result] = await connection.query(sql);
         // console.log('Profesores y asignaturas:');
         // console.log(result);
 
-        // // RETO 3
+        // // RETO 3 CORREGIDO
         // let sql = `
-        //     SELECT sub.title AS asignatura, t.first_name, t.last_name, COUNT(*) AS total_alumnos
-        //     FROM subject_teacher AS st
+        // SELECT
+        //     sub.title AS asignatura,
+        //     t.first_name,
+        //     t.last_name,
+        //     COUNT(s.student_id) AS total_alumnos
+        // FROM
+        //     subject_teacher AS st
         //     JOIN subjects AS sub ON st.subject_id = sub.subject_id
         //     JOIN teachers AS t ON st.teacher_id = t.teachers_id
         //     JOIN students AS s ON st.grupo_id = s.grupo_id
-        //     GROUP BY sub.title, t.first_name, t.last_name
+        //     JOIN grupos AS g ON s.grupo_id = g.grupo_id
+        // GROUP BY
+        //     sub.title,
+        //     t.first_name,
+        //     t.last_name`;
 
-        //     UNION
-
-        //     SELECT sub.title AS asignatura, NULL, NULL, 0 AS total_alumnos
-        //     FROM subjects AS sub
-        //     LEFT JOIN subject_teacher AS st ON sub.subject_id = st.subject_id
-        //     WHERE st.subject_id IS NULL`;
-        //     let [result] = await connection.query(sql);
-        //     console.log('Número total de alumnos por asignatura:');
-        //     console.log(result);
+        // let [result] = await connection.query(sql);
+        // console.log('Número total de alumnos por asignatura:');
+        // console.log(result);
     }
     catch(err)
     {
@@ -50,5 +53,4 @@ async function main ()
         await connection.end();
     }
 }
-
 main();

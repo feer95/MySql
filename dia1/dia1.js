@@ -63,7 +63,6 @@ async function main ()
 // let sql = 'UPDATE marks SET mark = 5 WHERE mark < 5';
 // let [result] = await connection.query(sql);
 // console.log('Aprobamos a los suspendidos');
-
     }
     catch(err)
     {
@@ -71,5 +70,4 @@ async function main ()
         await connection.end();
     }
 }
-
 main();
